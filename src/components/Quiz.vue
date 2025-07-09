@@ -148,10 +148,6 @@ function shareToTwitter() {
   window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
 }
 
-function shareToLinkedIn() {
-  const url = window.location.href;
-  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
-}
 
 function copyLink() {
   navigator.clipboard.writeText(window.location.href);
@@ -173,15 +169,6 @@ function getResultStickerStyle() {
   };
 }
 
-function getResultGradient(archetype: string) {
-  const gradients: Record<string, string> = {
-    'oracle': 'linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #1e3a8a 100%)',
-    'shapeshifter': 'linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #16a34a 100%)',
-    'wind-whisperer': 'linear-gradient(135deg, #eab308 0%, #facc15 50%, #eab308 100%)',
-    'terraformer': 'linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #ec4899 100%)'
-  };
-  return gradients[archetype] || 'linear-gradient(135deg, #8FAED0 0%, #D3C1EB 100%)';
-}
 
 defineExpose({
   resetQuiz

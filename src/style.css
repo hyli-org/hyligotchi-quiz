@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* Design Tokens */
+:root {
+  --card-bg: #FFF8F4;
+  --card-fg: #333129;
+  --accent-blue: #9DBBFF;
+  --accent-mint: #C8F1DD;
+  --accent-peach: #FFC894;
+  --shadow-card: 0 4px 12px rgba(0,0,0,.08);
+  --radius-lg: 18px;
+}
+
+/* Windows XP Cursors */
+* {
+  cursor: url('/cursors/cursor.cur'), auto;
+}
+
+button, 
+a,
+[role="button"] {
+  cursor: url('/cursors/hand.cur'), pointer;
+}
+
+.cursor-move {
+  cursor: url('/cursors/move.cur'), move;
+}
+
+/* Resize cursors */
+.cursor-nwse-resize {
+  cursor: url('/cursors/lnwse.cur'), nwse-resize;
+}
+
+.cursor-nesw-resize {
+  cursor: url('/cursors/lnesw.cur'), nesw-resize;
+}
+
+.cursor-ns-resize {
+  cursor: url('/cursors/lns.cur'), ns-resize;
+}
+
+.cursor-ew-resize {
+  cursor: url('/cursors/lwe.cur'), ew-resize;
+}
+

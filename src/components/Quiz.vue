@@ -181,6 +181,8 @@ defineExpose({
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
   animation: fadeInScale 350ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -240,7 +242,7 @@ defineExpose({
 
 .quiz-card {
   width: 100%;
-  min-height: 100%;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   background-color: var(--card-bg);
@@ -586,7 +588,6 @@ defineExpose({
   }
   
   .quiz-card {
-    min-height: 100%;
     border-radius: 12px;
   }
   

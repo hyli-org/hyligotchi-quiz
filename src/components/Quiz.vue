@@ -56,20 +56,20 @@
 
   <div v-else-if="state === 'completed'" class="completion-container" :data-result="resultHyligotchi?.id">
     <div class="result-content">
-      <div class="result-image-container">
+      <div class="result-image-container animate-element" style="--animation-order: 1">
         <div class="result-sticker" :style="getResultStickerStyle()">
           <img :src="getResultImage(resultHyligotchi?.id || '')" :alt="resultHyligotchi?.name" class="result-image" />
         </div>
       </div>
       
-      <h2 class="result-title">You are a {{ resultHyligotchi?.name }}!</h2>
-      <p class="result-description">{{ resultHyligotchi?.description }}</p>
+      <h2 class="result-title animate-element" style="--animation-order: 2">You are a {{ resultHyligotchi?.name }}!</h2>
+      <p class="result-description animate-element" style="--animation-order: 3">{{ resultHyligotchi?.description }}</p>
 
-      <button @click="shareToTwitter" class="share-on-x-button">
+      <button @click="shareToTwitter" class="share-on-x-button animate-element" style="--animation-order: 4">
         Share on X
       </button>
 
-      <div class="action-section">
+      <div class="action-section animate-element" style="--animation-order: 5">
         <button @click="handlePlayAgain" class="play-again-button">
           Play Again
         </button>
@@ -191,7 +191,7 @@ defineExpose({
 <style scoped>
 .quiz-container {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -205,7 +205,7 @@ defineExpose({
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: fadeInScale 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  animation: backgroundFadeIn 600ms cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   overflow: hidden;
 }
@@ -253,12 +253,12 @@ defineExpose({
 
 .quiz-card {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   background-color: var(--card-bg);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-radius: var(--radius-lg);
   filter: drop-shadow(var(--shadow-card));
 }
@@ -599,26 +599,36 @@ defineExpose({
   }
   
   .quiz-card {
-    height: 100%;
+    min-height: 100%;
     border-radius: 12px;
   }
   
   .quiz-content {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .question-section {
+    margin-bottom: 2.5rem;
   }
   
   .question-text {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  .answers-section {
+    gap: 1rem;
   }
   
   .answer-card {
-    font-size: 0.875rem;
+    font-size: 1.125rem;
+    padding: 1.5rem 1.75rem;
   }
   
   .nav-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
   }
   
   .action-section {
@@ -637,13 +647,42 @@ defineExpose({
   }
 }
 
+/* Animation for sequential element appearance */
+@keyframes backgroundFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes elementSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-element {
+  opacity: 0;
+  animation: elementSlideIn 400ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--animation-order) * 100ms + 200ms);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .quiz-container,
   .completion-container,
   .answer-card,
-  .nav-button {
+  .nav-button,
+  .animate-element {
     animation: none;
     transition: none;
+    opacity: 1;
   }
   
   .progress-fill {

@@ -84,12 +84,12 @@ const windowContainerRef = computed(() => windowRef.value?.windowContentElement)
               style="background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255, 255, 255, 0.08) 3px, rgba(255, 255, 255, 0.08) 6px); background-size: 12px 12px;"
             ></div>
             
-            <!-- Single-line headline -->
+            <!-- Single-line headline (multiline on mobile) -->
             <h1 
-              class="font-black text-[28px] sm:text-[36px] md:text-[48px] lg:text-[58px] xl:text-[68px] leading-none relative px-4 whitespace-nowrap"
+              class="font-black text-[70px] sm:text-[36px] md:text-[48px] lg:text-[58px] xl:text-[68px] leading-tight sm:leading-none relative px-4 sm:whitespace-nowrap"
               style="font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Poppins', sans-serif; font-weight: 900; letter-spacing: -0.02em; color: #3F332B; text-shadow: 4px 4px 0px rgba(255, 244, 236, 0.1);"
             >
-              Which <span style="color: #8FAED0;">Hyligotchi</span> are you?
+              Which <br class="sm:hidden" /><span style="color: #8FAED0;">Hyligotchi</span> are you?
             </h1>
           </div>
         </div>

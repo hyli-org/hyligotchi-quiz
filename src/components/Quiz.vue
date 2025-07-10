@@ -134,16 +134,16 @@ function handleKeyboard(e: KeyboardEvent) {
 
 function getResultImage(id: string): string {
   const images: Record<string, string> = {
-    'oracle': '/blue.jpg',
-    'shapeshifter': '/green.jpg',
-    'wind-whisperer': '/yellow.jpg',
-    'terraformer': '/pink.jpg'
+    'oracle': '/blue.png',
+    'shapeshifter': '/green.png',
+    'wind-whisperer': '/yellow.png',
+    'terraformer': '/pink.png'
   };
   return images[id] || '/blue.jpg';
 }
 
 function shareToTwitter() {
-  const text = `I'm a ${resultHyligotchi.value?.name}! ${resultHyligotchi.value?.description} Which Hyligotchi are you?`;
+  const text = `I'm a ${resultHyligotchi.value?.name}!\n\nWhich Hyligotchi are you on @hyli_org testnet?\nFind out here:`;
   const url = window.location.href;
   window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
 }
@@ -171,7 +171,8 @@ function getResultStickerStyle() {
 
 
 defineExpose({
-  resetQuiz
+  resetQuiz,
+  resultHyligotchi
 });
 </script>
 
@@ -450,26 +451,33 @@ defineExpose({
 }
 
 .result-content {
-  padding: 2rem;
+  padding: 1.5rem;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-radius: var(--radius-lg);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 80px rgba(255, 255, 255, 0.5);
   position: relative;
   text-align: center;
-  max-width: 32rem;
+  max-width: 26rem;
   z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
+@media (max-width: 1440px) {
+  .result-content {
+    padding: 1.25rem;
+    max-width: 24rem;
+  }
+}
+
 
 .result-image-container {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .result-sticker {
-  width: 16rem;
-  height: 16rem;
+  width: 12rem;
+  height: 12rem;
   border-radius: 9999px;
   margin: 0 auto;
   display: flex;
@@ -492,17 +500,26 @@ defineExpose({
 }
 
 .result-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   color: var(--card-fg);
 }
 
 .result-description {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   color: var(--card-fg);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   opacity: 0.8;
+  line-height: 1.5;
+}
+
+/* Even smaller text on MacBook screens */
+@media (max-width: 1440px) {
+  .result-description {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
 }
 
 .share-on-x-button {
@@ -632,6 +649,21 @@ defineExpose({
   .result-sticker {
     width: 12rem;
     height: 12rem;
+  }
+}
+
+@media (max-width: 1440px) {
+  .result-sticker {
+    width: 9rem;
+    height: 9rem;
+  }
+  
+  .result-title {
+    font-size: 1.125rem;
+  }
+  
+  .result-image-container {
+    margin-bottom: 1.25rem;
   }
 }
 

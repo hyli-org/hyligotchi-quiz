@@ -152,24 +152,49 @@ const props = withDefaults(defineProps<Props>(), {
   initialPosition: () => {
     const vw = window.innerWidth
     const vh = window.innerHeight
-    const isMobile = vw < 768
     
-    if (isMobile) {
+    if (vw < 768) {
       return { x: 16, y: 16 }
     } else {
-      const width = Math.min(1100, vw - 100)
-      const height = Math.min(700, vh - 100)
+      // Get the actual window size based on screen size
+      let width, height;
+      if (vw <= 1440) {
+        width = Math.min(800, vw - 200);
+        height = Math.min(600, vh - 150);
+      } else if (vw <= 1920) {
+        width = Math.min(1000, vw - 150);
+        height = Math.min(650, vh - 120);
+      } else {
+        width = Math.min(1100, vw - 100);
+        height = Math.min(700, vh - 100);
+      }
       return { x: (vw - width) / 2, y: (vh - height) / 2 }
     }
   },
   initialSize: () => {
     const vw = window.innerWidth
     const vh = window.innerHeight
-    const isMobile = vw < 768
     
-    if (isMobile) {
+    // Mobile
+    if (vw < 768) {
       return { width: vw - 32, height: vh - 32 }
-    } else {
+    } 
+    // Small laptop (like 13" MacBook)
+    else if (vw <= 1440) {
+      return { 
+        width: Math.min(800, vw - 200), 
+        height: Math.min(600, vh - 150) 
+      }
+    }
+    // Medium screens (15-16" laptops)
+    else if (vw <= 1920) {
+      return { 
+        width: Math.min(1000, vw - 150), 
+        height: Math.min(650, vh - 120) 
+      }
+    }
+    // Large screens (desktop monitors)
+    else {
       return { 
         width: Math.min(1100, vw - 100), 
         height: Math.min(700, vh - 100) 
@@ -195,9 +220,21 @@ const getResponsiveDimensions = () => {
       y: 16
     }
   } else {
-    // On desktop, use fixed size but ensure it fits
-    const width = Math.min(1100, vw - 100)
-    const height = Math.min(700, vh - 100)
+    // On desktop, use size based on screen size
+    let width, height;
+    if (vw <= 1440) {
+      // Small laptop (like 13" MacBook)
+      width = Math.min(800, vw - 200);
+      height = Math.min(600, vh - 150);
+    } else if (vw <= 1920) {
+      // Medium screens (15-16" laptops)
+      width = Math.min(1000, vw - 150);
+      height = Math.min(650, vh - 120);
+    } else {
+      // Large screens (desktop monitors)
+      width = Math.min(1100, vw - 100);
+      height = Math.min(700, vh - 100);
+    }
     return {
       width,
       height,

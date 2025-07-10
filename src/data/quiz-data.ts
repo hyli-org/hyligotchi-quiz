@@ -13,7 +13,7 @@ export const questions: Question[] = [
       },
       {
         id: 'q1b',
-        label: "Use it to your advantage. This is a fascinating discovery, others are bound to also be interested.",
+        label: "Put a plan in place. If you know they're here, they know you're here.",
         points: { oracle: 0, shapeshifter: 1, 'wind-whisperer': 0, terraformer: 0 }
       },
       {
@@ -35,7 +35,7 @@ export const questions: Question[] = [
     answers: [
       {
         id: 'q2a',
-        label: "Studying the alien language.",
+        label: "Trying to build the best alien language decoder.",
         points: { oracle: 1, shapeshifter: 0, 'wind-whisperer': 0, terraformer: 0 }
       },
       {
@@ -45,7 +45,7 @@ export const questions: Question[] = [
       },
       {
         id: 'q2c',
-        label: "Talking to back to people on Earth, there's lots of people you miss.",
+        label: "Talking to people back on Earth, there's lots of people you miss.",
         points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 1, terraformer: 0 }
       },
       {
@@ -67,18 +67,18 @@ export const questions: Question[] = [
       },
       {
         id: 'q3b',
-        label: "Research the problem and try to solve it.",
-        points: { oracle: 1, shapeshifter: 0, 'wind-whisperer': 0, terraformer: 0 }
+        label: "Use whatever means necessary to get water.",
+        points: { oracle: 0, shapeshifter: 1, 'wind-whisperer': 0, terraformer: 0 }
       },
       {
         id: 'q3c',
-        label: "Check in on everyone to make sure they're ok.",
-        points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 1, terraformer: 0 }
+        label: "Figure out why the shortage is happening first, then solve that problem.",
+        points: { oracle: 1, shapeshifter: 0, 'wind-whisperer': 0, terraformer: 0 }
       },
       {
         id: 'q3d',
-        label: "Use whatever means necessary to get water.",
-        points: { oracle: 0, shapeshifter: 1, 'wind-whisperer': 0, terraformer: 0 }
+        label: "Check in on everyone to make sure they're ok.",
+        points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 1, terraformer: 0 }
       }
     ]
   },
@@ -89,23 +89,23 @@ export const questions: Question[] = [
     answers: [
       {
         id: 'q4a',
-        label: "Haul the gear and walk the rest of the way, no one gets left behind.",
+        label: "Haul the gear and walk the rest of the way.",
         points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 0, terraformer: 1 }
       },
       {
         id: 'q4b',
-        label: "Disassemble the rover to study and rebuild it better.",
+        label: "Disassemble the rover and build it back better.",
         points: { oracle: 1, shapeshifter: 0, 'wind-whisperer': 0, terraformer: 0 }
       },
       {
         id: 'q4c',
-        label: "Call for help and wait, safety and teamwork come first.",
-        points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 1, terraformer: 0 }
+        label: "Use the parts to create a one-person sled and tell the others you'll come get them, it's the fastest option!",
+        points: { oracle: 0, shapeshifter: 1, 'wind-whisperer': 0, terraformer: 0 }
       },
       {
         id: 'q4d',
-        label: "Use the parts to create a one-person sled. The show must go on even if you have to go solo!",
-        points: { oracle: 0, shapeshifter: 1, 'wind-whisperer': 0, terraformer: 0 }
+        label: "Call for help and wait, safety and teamwork come first.",
+        points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 1, terraformer: 0 }
       }
     ]
   },
@@ -131,7 +131,7 @@ export const questions: Question[] = [
       },
       {
         id: 'q5d',
-        label: "You don't really care, but you hope you can get your initials in there.",
+        label: "You don't really have one and think flags are passé.",
         points: { oracle: 0, shapeshifter: 1, 'wind-whisperer': 0, terraformer: 0 }
       }
     ]
@@ -143,23 +143,23 @@ export const questions: Question[] = [
     answers: [
       {
         id: 'q6a',
-        label: "Grab your tools and examine it ASAP in person.",
+        label: "Rush in to check it out.",
         points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 0, terraformer: 1 }
       },
       {
         id: 'q6b',
-        label: "Document and test samples carefully in the lab.",
+        label: "Run some tests on it and cross-compare them to plants on Earth.",
         points: { oracle: 1, shapeshifter: 0, 'wind-whisperer': 0, terraformer: 0 }
       },
       {
         id: 'q6c',
-        label: "Alert the team and recommend a shared observation shift.",
-        points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 1, terraformer: 0 }
+        label: "Don't tell anyone yet. If it's valuable, it could be used in exchange for information.",
+        points: { oracle: 0, shapeshifter: 1, 'wind-whisperer': 0, terraformer: 0 }
       },
       {
         id: 'q6d',
-        label: "Don't tell anyone yet. If it's valuable, it might be your breakthrough.",
-        points: { oracle: 0, shapeshifter: 1, 'wind-whisperer': 0, terraformer: 0 }
+        label: "Alert the team and recommend a shared observation shift.",
+        points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 1, terraformer: 0 }
       }
     ]
   },
@@ -180,12 +180,12 @@ export const questions: Question[] = [
       },
       {
         id: 'q7c',
-        label: "Your heroism and adventures: you wrote the map and have the scars to prove it.",
+        label: "Your heroism and adventures: you wrote the Mars map and have the scars to prove it.",
         points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 0, terraformer: 1 }
       },
       {
         id: 'q7d',
-        label: "Your political influence: you ran Mars.",
+        label: "Your political influence: you basically ran the Mars show.",
         points: { oracle: 0, shapeshifter: 1, 'wind-whisperer': 0, terraformer: 0 }
       }
     ]
@@ -196,28 +196,28 @@ export const hyligotchis: Record<string, Hyligotchi> = {
   oracle: {
     id: 'oracle',
     name: 'Oracle Hyligotchi',
-    description: 'A wise and curious soul who seeks knowledge in the mysteries of the universe.',
+    description: 'You were the kid in the back of class who never seemed to be paying attention. Not because you were rebellious or slow to learn, but because you were actually just bored. Naturally curious and observant, you\'re quick to pick up on new concepts. Small talk makes you want to die. You\'re happiest when you\'re learning and applying new concepts, and you have an inner creative spark that sometimes takes people by surprise.',
     image: '/public/hyligotchis/oracle.png',
     color: '#1e3a8a' // Navy blue
   },
   shapeshifter: {
     id: 'shapeshifter',
     name: 'Shapeshifter Hyligotchi',
-    description: 'A clever strategist who adapts to any situation and sees opportunity everywhere.',
+    description: 'You were called a bossy child but look at you now. You\'re strategic and ambitious and you wear it well… You do what needs to be done to get to where you\'re going. Some people might be scared of you but that\'s their loss. You have a strong sense of direction and are often a few steps ahead which has served you well, you almost always end up on the winning team.',
     image: '/public/hyligotchis/shapeshifter.png',
     color: '#16a34a' // Green
   },
   'wind-whisperer': {
     id: 'wind-whisperer',
     name: 'Wind Whisperer Hyligotchi',
-    description: 'A compassionate friend who brings people together and nurtures community.',
+    description: 'You\'re steady and kind. Your friends say you\'re the most reliable one of the bunch. You like to make people feel safe no matter what, but this doesn\'t mean you\'re not to be taken seriously - you\'re perhaps the most resilient of them all. Others look up to you for your inner strength and consistency. You naturally end up being the arbiter in most situations, and you\'re happiest when your community is at peace.',
     image: '/public/hyligotchis/wind-whisperer.png',
     color: '#eab308' // Yellow
   },
   terraformer: {
     id: 'terraformer',
     name: 'Terraformer Hyligotchi',
-    description: 'A bold leader who shapes new worlds through courage and determination.',
+    description: 'You\'re a natural born leader. Where you go, others follow. Sometimes impulsive, you\'re always quick to volunteer and step up to the plate. You get into trouble but you\'re also bold and loyal. Your friends say you\'re the unpredictable life of the party. You start messes but you\'re the first one to also clean them up. If people can\'t get in touch with you the answer is simple… you\'re on an adventure.',
     image: '/public/hyligotchis/terraformer.png',
     color: '#ec4899' // Pink
   }

@@ -5,10 +5,13 @@ import CursorTrail from './components/CursorTrail.vue'
 import StickerButton from './components/StickerButton.vue'
 import Quiz from './components/Quiz.vue'
 import ConfirmDialog from './components/ConfirmDialog.vue'
+import WindowsManager from './components/WindowsManager.vue'
 
 const showQuiz = ref(false)
 const showConfirmDialog = ref(false)
 const quizRef = ref<InstanceType<typeof Quiz>>()
+const currentResultColor = ref<'pink' | 'green' | 'blue' | 'yellow' | null>(null)
+const showImageWindows = ref(false)
 
 const handleClose = () => {
   if (showQuiz.value) {
@@ -41,6 +44,8 @@ const handleConfirmClose = () => {
   }
   showQuiz.value = false
   showConfirmDialog.value = false
+  showImageWindows.value = false
+  currentResultColor.value = null
 }
 
 const handleCancelClose = () => {
@@ -51,6 +56,8 @@ const handleCancelClose = () => {
 const handleGoHome = () => {
   // Go back to the landing page
   showQuiz.value = false
+  showImageWindows.value = false
+  currentResultColor.value = null
 }
 
 const handleHover = (dwellMs: number) => {
@@ -59,11 +66,42 @@ const handleHover = (dwellMs: number) => {
 
 const windowRef = ref<InstanceType<typeof Window>>()
 const windowContainerRef = computed(() => windowRef.value?.windowContentElement)
+
+// Watch for quiz completion
+import { watch } from 'vue'
+watch(
+  () => quizRef.value?.resultHyligotchi,
+  (result) => {
+    if (result) {
+      // Map hyligotchi to color theme
+      const colorMap: Record<string, 'pink' | 'green' | 'blue' | 'yellow'> = {
+        'terraformer': 'pink',
+        'shapeshifter': 'green',
+        'oracle': 'blue',
+        'wind-whisperer': 'yellow'
+      }
+      const color = colorMap[result.id]
+      // Show image windows on desktop for all color results
+      if (color && window.innerWidth > 768) {
+        currentResultColor.value = color
+        showImageWindows.value = true
+      }
+    }
+  },
+  { deep: true }
+)
 </script>
 
 <template>
   <!-- Cursor Trail -->
   <CursorTrail />
+  
+  <!-- Windows Manager for image popups -->
+  <WindowsManager 
+    v-if="showImageWindows && currentResultColor"
+    :color-theme="currentResultColor" 
+    :is-active="showImageWindows" 
+  />
   
   <!-- Section with background image -->
   <section class="fixed inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('/background.jpg')">

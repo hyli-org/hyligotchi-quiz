@@ -13,6 +13,9 @@
           :aria-valuemax="totalQuestions"
         />
       </div>
+      <div class="question-counter">
+        {{ currentQuestionIndex + 1 }}/{{ totalQuestions }}
+      </div>
     </div>
 
     <div class="quiz-content">
@@ -62,7 +65,7 @@
         </div>
       </div>
       
-      <h2 class="result-title animate-element" style="--animation-order: 2">You are a {{ resultHyligotchi?.name }}!</h2>
+      <h2 class="result-title animate-element" style="--animation-order: 2">You're {{ resultHyligotchi?.id === 'oracle' ? 'an' : 'a' }} {{ resultHyligotchi?.name }}!</h2>
       <p class="result-description animate-element" style="--animation-order: 3">{{ resultHyligotchi?.description }}</p>
 
       <button @click="shareToTwitter" class="share-on-x-button animate-element" style="--animation-order: 4">
@@ -290,10 +293,13 @@ defineExpose({
 
 .progress-bar-container {
   padding: 1rem 1.5rem 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .progress-bar {
-  width: 100%;
+  flex: 1;
   height: 12px;
   background-color: rgba(234, 248, 255, 0.5);
   border-radius: 6px;
@@ -306,6 +312,15 @@ defineExpose({
   background: linear-gradient(to right, var(--accent-blue), var(--accent-mint));
   transition: width 200ms ease-out;
   border-radius: 6px;
+}
+
+.question-counter {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--card-fg);
+  white-space: nowrap;
+  min-width: 2.5rem;
+  text-align: right;
 }
 
 
@@ -611,6 +626,16 @@ defineExpose({
   .quiz-content {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+  
+  .progress-bar-container {
+    padding: 0.75rem 1rem 0.5rem 1rem;
+    gap: 0.75rem;
+  }
+  
+  .question-counter {
+    font-size: 0.8125rem;
+    min-width: 2rem;
   }
   
   .question-section {

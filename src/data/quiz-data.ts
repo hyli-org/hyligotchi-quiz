@@ -18,19 +18,19 @@ export const questions: Question[] = [
       },
       {
         id: 'q1c',
-        label: "Start daydreaming about how you're about to become bffs with the aliens.",
+        label: "Start daydreaming about being best friends with an alien.",
         points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 1, terraformer: 0 }
       },
       {
         id: 'q1d',
-        label: "Immediately tell all of basecamp, this is big news and everyone should know.",
+        label: "Immediately tell everyone, this is big news and everyone should know.",
         points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 0, terraformer: 1 }
       }
     ]
   },
   {
     id: 'q2',
-    prompt: "You have a free day on Mars. What's your ideal way to spend the afternoon?",
+    prompt: "You have a free day. What's your ideal way to spend the afternoon?",
     icon: '🪐',
     answers: [
       {
@@ -111,7 +111,7 @@ export const questions: Question[] = [
   },
   {
     id: 'q5',
-    prompt: "You're invited to design the Mars colony's flag. What's your design philosophy?",
+    prompt: "You're invited to design the Martian flag. What's your design philosophy?",
     icon: '🚩',
     answers: [
       {
@@ -131,7 +131,7 @@ export const questions: Question[] = [
       },
       {
         id: 'q5d',
-        label: "You don't really have one and think flags are passé.",
+        label: "You don't really like flags anyway.",
         points: { oracle: 0, shapeshifter: 1, 'wind-whisperer': 0, terraformer: 0 }
       }
     ]
@@ -175,7 +175,7 @@ export const questions: Question[] = [
       },
       {
         id: 'q7b',
-        label: "The impact you made on the lives of those around you.",
+        label: "The impact you made on the lives of those around you: you helped make Mars a good place to live.",
         points: { oracle: 0, shapeshifter: 0, 'wind-whisperer': 1, terraformer: 0 }
       },
       {
